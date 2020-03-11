@@ -1,0 +1,56 @@
+var cy = window.cy = cytoscape({
+  container: document.getElementById('cy'),
+
+  boxSelectionEnabled: false,
+
+  style: [
+    {
+      selector: 'node',
+      css: {
+        'content': 'data(id)',
+        'text-valign': 'center',
+        'text-halign': 'center'
+      }
+    },
+    {
+      selector: ':parent',
+      css: {
+        'text-valign': 'top',
+        'text-halign': 'center',
+      }
+    },
+    {
+      selector: 'edge',
+      css: {
+        'curve-style': 'bezier',
+        'target-arrow-shape': 'triangle'
+      }
+    }
+  ],
+
+  elements: {
+    nodes: [
+      { data: { id: 'a', parent: 'b' } },
+      { data: { id: 'b' }, position: { x: 0, y: 0 } },
+      { data: { id: 'c', parent: 'b' } },
+      { data: { id: 'd' }},
+      { data: { id: 'e' } },
+      { data: { id: 'f', parent: 'e' } },
+      { data: { id: 'h' } },
+      { data: { id: 'g', parent: 'h' } }
+    ],
+    edges: [
+      { data: { id: 'ad', source: 'a', target: 'd' } },
+      { data: { id: 'eb', source: 'e', target: 'b' } },
+      { data: { id: 'ga', source: 'g', target: 'a' } },
+      { data: { id: 'gd', source: 'g', target: 'd' } },
+      { data: { id: 'gf', source: 'g', target: 'f' } },
+
+    ]
+  },
+
+  layout: {
+    name: 'preset',
+    padding: 0
+  }
+});

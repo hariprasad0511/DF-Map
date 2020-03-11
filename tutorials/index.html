@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>Tutorial 1: Getting Started</title>
+    <script src='assets/cytoscape.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <style>
+        #cy {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align: center;">Data Flow Maps</h2>
+    <input type="text" id="node_id" placeholder="enter new node name">
+    from 
+    <input type="text" id="from_node" placeholder="enter node id">
+    <select id = "parent">
+        <option disabled selected>Select a Parent Node</option>
+        <option value="user">User</option>
+        <option value="device">Device</option>
+        <option value="Other ENV">Other ENV</option>
+        <option value="SE ENV">SE ENV</option>
+    </select>
+    <select id = "user_type">
+        <option disabled selected>Select User Type</option>
+        <option value="null">Not Applicable</option>
+        <option value="Data Subject">Data Subject</option>
+        <option value="SE Subject">SE Subject</option>
+        <option value="Non-SE Persona">Non-SE Persona</option>
+    </select>
+    <select id = "scope">
+        <option disabled selected>Select Scope of this Connection/Component</option>
+        <option value="in_scope">In-Scope</option>
+        <option value="out_of_scope">Out Of Scope</option>
+    </select>
+    <button id="addBtn" onclick="addNode()">Add Node</button>     
+    <div id="cy"></div>
+  
+    <script src="index.js"></script>
+  
+  </body>
+</html>
